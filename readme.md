@@ -1,4 +1,4 @@
-```mermaid
+
 sequenceDiagram
     participant server1
     participant client
@@ -17,7 +17,6 @@ sequenceDiagram
     note over client:The server that got the same ip as the clients broadcast acknowledges his configuration
     server1->>client:dhcpack
     note over client:there is an 3 minute outage, the client reconnects but server 1 is down
-
     note over server1:DOWN
     note over client:the clients sends a request to server 1, because the lease time did not expire
     client->>server1:dhcprequest
@@ -31,13 +30,11 @@ sequenceDiagram
     client->>server2: dhcprequest 
     note over client:The server that got the same ip as the clients broadcast acknowledges his configuration
     server2->>client:dhcpack
-
     note over client:50% of the lease time passes
     note over client: the client asks if he can still use the ip
     client->>server2:dhcprequest
     note over client:in this case he can so server 2 sends a DHCPACK
     server2->>client:dhcpack
-
     note over client:the lease time runs out so the client needs to restart the DHCP protocol from the begining
     note over client:The client discovers the servers in the network by broadcast
     client->>server2: dhcpdiscover
@@ -47,7 +44,6 @@ sequenceDiagram
     client->>server2: dhcprequest 
     note over client:The server that got the same ip as the clients broadcast acknowledges his configuration
     server2->>client:dhcpack
-
     note over client:50% of the lease time passes
     note over client: the client asks if he can still use the ip
     client->>server2:dhcprequest
@@ -64,4 +60,3 @@ sequenceDiagram
     server2->>client:dhcpack
     note over client:the client spends 2 more hours, because it does not exceed the lease time, nothing happens
     note over client:the client disconnects permanently
-    ```
