@@ -1,4 +1,4 @@
-
+```mermaid
 sequenceDiagram
     participant server1
     participant client
@@ -60,3 +60,4 @@ sequenceDiagram
     server2->>client:dhcpack
     note over client:the client spends 2 more hours, because it does not exceed the lease time, nothing happens
     note over client:the client disconnects permanently
+```
